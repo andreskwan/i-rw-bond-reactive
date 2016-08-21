@@ -30,11 +30,13 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    searchTextField.bnd_text.observe {
-        text in
+    
+    // bnd_text is turns searchTextField into an observable which is a stream of events!!
+    let uppercase = searchTextField.bnd_text.map({ $0?.uppercaseString} )
+    
+    uppercase.observe { text in
         print(text)
     }
   }
-
 }
 
