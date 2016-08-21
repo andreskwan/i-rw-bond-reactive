@@ -19,6 +19,7 @@
 		3CFCDDE81C1971B600B061E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCDDE71C1971B600B061E0 /* Assets.xcassets */; };
 		3CFCDDEB1C1971B600B061E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCDDE91C1971B600B061E0 /* LaunchScreen.storyboard */; };
 		3CFCDDF61C1981C100B061E0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCDDF51C1981C100B061E0 /* SettingsViewController.swift */; };
+		A3D15E71BD88F384C2CC754F /* Pods_BindingWithBond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F79E3CF48F4D995F1E8ABC1 /* Pods_BindingWithBond.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		3CFCDDEA1C1971B600B061E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CFCDDEC1C1971B600B061E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CFCDDF51C1981C100B061E0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5F79E3CF48F4D995F1E8ABC1 /* Pods_BindingWithBond.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BindingWithBond.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF686A697F9B857C4238296F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3D15E71BD88F384C2CC754F /* Pods_BindingWithBond.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +113,7 @@
 		768A3D98D6A72503C4EDCE3A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F79E3CF48F4D995F1E8ABC1 /* Pods_BindingWithBond.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
