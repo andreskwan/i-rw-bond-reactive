@@ -20,6 +20,7 @@
 		3CFCDDEB1C1971B600B061E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCDDE91C1971B600B061E0 /* LaunchScreen.storyboard */; };
 		3CFCDDF61C1981C100B061E0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCDDF51C1981C100B061E0 /* SettingsViewController.swift */; };
 		A3D15E71BD88F384C2CC754F /* Pods_BindingWithBond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F79E3CF48F4D995F1E8ABC1 /* Pods_BindingWithBond.framework */; };
+		F40BB4021D711723000E0474 /* PhotoSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40BB4011D711723000E0474 /* PhotoSearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		3CFCDDF51C1981C100B061E0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5F79E3CF48F4D995F1E8ABC1 /* Pods_BindingWithBond.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BindingWithBond.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF686A697F9B857C4238296F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F40BB4011D711723000E0474 /* PhotoSearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoSearchViewModel.swift; path = BindingWithBond/PhotoSearchViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		3C8285671C19DCDC00ECF06C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F40BB4011D711723000E0474 /* PhotoSearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				3C8285641C19D8BB00ECF06C /* PhotoSearch.swift in Sources */,
 				3CFCDDF61C1981C100B061E0 /* SettingsViewController.swift in Sources */,
 				3C8285621C19D8BB00ECF06C /* Photo.swift in Sources */,
+				F40BB4021D711723000E0474 /* PhotoSearchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
