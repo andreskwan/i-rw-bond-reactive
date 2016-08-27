@@ -30,21 +30,7 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // bnd_text is turns searchTextField into an observable which is a stream of events!!
-    
-    // 1 stream searchTextField.bnd_text
-    // 2 transformation - map
-    // 3 binding
-    let uppercase = searchTextField.bnd_text.map({ $0?.uppercaseString} )
-    
-    uppercase.observe { text in
-        print(text)
-    }
-    
-    searchTextField.bnd_text
-        .map { $0!.characters.count > 0 }
-        .bindTo(activityIndicator.bnd_animating)
+
   }
 }
 
