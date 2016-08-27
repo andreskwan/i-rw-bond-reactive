@@ -21,8 +21,15 @@ class PhotoSearchViewModel {
             print(text)
         }
         
+        /*
+         ‘throttle’ the queries so that at most only one or two are sent per second.
+         */
         searchString
-            .map { $0!.characters.count > 3 }
-            .bindTo(validSearchText)
+            .filter { $0!.characters.count > 3 }
+            .throttle(0.5, queue: Queue.Main)
+            .observe {
+                [unowned self] text in
+                self.executeSearch(text!)
+        }
     }
 }
