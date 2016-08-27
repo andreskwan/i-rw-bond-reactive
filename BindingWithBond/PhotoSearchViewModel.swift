@@ -32,4 +32,8 @@ class PhotoSearchViewModel {
                 self.executeSearch(text!)
         }
     }
+    
+    func executeSearch(text: String) {
+        print(text)
+    }
 }
