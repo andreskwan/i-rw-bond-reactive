@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     }
     
     func bindViewModel() {
-        viewModel.searchString.bindTo(searchTextField.bnd_text)
+        viewModel.searchString.bidirectionalBindTo(searchTextField.bnd_text)
     }
 }
 
