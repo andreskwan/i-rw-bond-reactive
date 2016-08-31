@@ -12,7 +12,9 @@ import Bond
 class PhotoSearchViewModel {
     let searchString = Observable<String?>("")
     let validSearchText = Observable<Bool>(false)
-
+    //Rendering results
+    let searchResults = ObservableArray<Photo>()
+    
     private let searchService: PhotoSearch = {
         let apiKey = NSBundle.mainBundle().objectForInfoDictionaryKey("apiKey") as! String
         return PhotoSearch(key: apiKey)
@@ -56,6 +58,8 @@ class PhotoSearchViewModel {
             switch result {
             case .Success(let photos):
                     print("500px API returned \(photos.count) photos")
+                    self.searchResults.removeAll()
+                    self.searchResults.insertContentsOf(photos, atIndex: 0)
             case .Error:
                 print("Sad face :(")
             }
