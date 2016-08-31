@@ -12,6 +12,11 @@ import Bond
 class PhotoSearchViewModel {
     let searchString = Observable<String?>("")
     let validSearchText = Observable<Bool>(false)
+
+    private let searchService: PhotoSearch = {
+        let apiKey = NSBundle.mainBundle().objectForInfoDictionaryKey("apiKey") as! String
+        return PhotoSearch(key: apiKey)
+    }()
     
     init() {
         searchString.value = "Bond"
@@ -44,5 +49,20 @@ class PhotoSearchViewModel {
     
     func executeSearch(text: String) {
         print(text)
+        var query = PhotoQuery()
+        query.text = searchString.value ?? " "
+        
+        searchService.findPhotos(query) { result in
+            switch result {
+            case .Success(let photos):
+                    print("500px API returned \(photos.count) photos")
+            case .Error:
+                print("Sad face :(")
+            }
+        }
     }
+}
+
+private extension PhotoSearchViewModel {
+    
 }
