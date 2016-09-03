@@ -31,7 +31,7 @@ class PhotoSearchViewModel {
          */
         searchString.observeNew {
             text in
-            print(text)
+            print("texfield: \(text)")
         }
         /*
          Validation: text longitud

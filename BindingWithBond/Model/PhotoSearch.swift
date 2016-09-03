@@ -48,7 +48,12 @@ class PhotoSearch {
     let params = [
       "consumer_key": key,
       "image_size": "4",
-      "term": query.text,
+      "term": query.text.characters.reduce("", combine: { (resultString, inputChar) -> String in
+        if inputChar != " " {
+            return resultString + String(inputChar)
+        }
+        return resultString + "+"
+      }),
       "license_type": query.creativeCommonsLicence ? "1,2,3,4,5,6" : "0"
     ];
     
@@ -60,6 +65,7 @@ class PhotoSearch {
       callback(.Error(PhotoSearchError.MalformedRequest))
       return
     }
+//    print("url= \(url)")
     // perform the request
     let task = NSURLSession.sharedSession().dataTaskWithURL(url) {
       (data, response, error) in
