@@ -43,7 +43,12 @@ class ViewController: UIViewController {
         viewModel.searchInProgress
             .map { !$0 }
             .bindTo(activityIndicator.bnd_hidden)
-                
+        
+        //reduces the opacity of the table view while searching
+        viewModel.searchInProgress
+            .map { $0 ? CGFloat(0.5) : CGFloat(1.0) }
+            .bindTo(resultsTable.bnd_alpha)
+        
         viewModel.searchResults.lift().bindTo(resultsTable) { indexPath, dataSource, tableView -> PhotoTableViewCell in
             let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath) as! PhotoTableViewCell
             
