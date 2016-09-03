@@ -39,6 +39,11 @@ class ViewController: UIViewController {
         viewModel.validSearchText.map{$0 ? UIColor.blackColor() : UIColor.redColor()}
                                  .bindTo(searchTextField.bnd_textColor)
         
+        //hide/show activity indicator when search done/executing
+        viewModel.searchInProgress
+            .map { !$0 }
+            .bindTo(activityIndicator.bnd_hidden)
+                
         viewModel.searchResults.lift().bindTo(resultsTable) { indexPath, dataSource, tableView -> PhotoTableViewCell in
             let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath) as! PhotoTableViewCell
             
