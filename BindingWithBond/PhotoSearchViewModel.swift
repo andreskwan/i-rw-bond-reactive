@@ -62,7 +62,7 @@ class PhotoSearchViewModel {
         //this is a state machine in FnF
         searchInProgress.value = true
         
-        searchService.findPhotos(query) { result in
+        searchService.findPhotos(query) { [unowned self] result in
             self.searchInProgress.value = false
             switch result {
             case .Success(let photos):
