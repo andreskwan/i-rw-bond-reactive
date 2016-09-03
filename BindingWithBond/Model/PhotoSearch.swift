@@ -28,6 +28,9 @@ class PhotoSearch {
   let host = "https://api.500px.com/"
   let apiMethod = "v1/photos/search"
   let key: String
+  let extractSpace: (String, Character) -> String = {total, input in
+        input != " " ? total + String(input) : total + "+"
+    }
   
   private static var formatter: NSDateFormatter = {
     let formatter = NSDateFormatter()
@@ -48,12 +51,7 @@ class PhotoSearch {
     let params = [
       "consumer_key": key,
       "image_size": "4",
-      "term": query.text.characters.reduce("", combine: { (resultString, inputChar) -> String in
-        if inputChar != " " {
-            return resultString + String(inputChar)
-        }
-        return resultString + "+"
-      }),
+      "term": query.text.characters.reduce("", combine:extractSpace),
       "license_type": query.creativeCommonsLicence ? "1,2,3,4,5,6" : "0"
     ];
     
