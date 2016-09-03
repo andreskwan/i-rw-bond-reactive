@@ -14,6 +14,9 @@ class PhotoSearchViewModel {
     let validSearchText = Observable<Bool>(false)
     //Rendering results
     let searchResults = ObservableArray<Photo>()
+    //to indicate progress
+    var searchInProgress = Observable<Bool>(false)
+
     
     private let searchService: PhotoSearch = {
         let apiKey = NSBundle.mainBundle().objectForInfoDictionaryKey("apiKey") as! String
@@ -37,7 +40,9 @@ class PhotoSearchViewModel {
                     .bindTo(validSearchText)
         
         /*
-         ‘throttle’ the queries so that at most only one or two are sent per second.
+         ‘throttle’
+         reduce the amount of queries,
+         so that at most only one or two are sent per second.
          */
         searchString
             .filter { $0!.characters.count > 3 }
@@ -52,9 +57,13 @@ class PhotoSearchViewModel {
     func executeSearch(text: String) {
         print(text)
         var query = PhotoQuery()
+        //is this functional? to have access to searchString or it should be a parameter?
         query.text = searchString.value ?? " "
+        //this is a state machine in FnF
+        searchInProgress.value = true
         
         searchService.findPhotos(query) { result in
+            self.searchInProgress.value = false
             switch result {
             case .Success(let photos):
                     print("500px API returned \(photos.count) photos")
